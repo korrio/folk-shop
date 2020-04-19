@@ -51,82 +51,82 @@ describe('Index', () => {
     expect(fakeStore.modules.product.actions.setProductsRef).toHaveBeenCalled()
   })
 
-  describe('> sidebar', () => {
-    it('have a sidebar component', () => {
-      b.domHas(Sidebar)
+  // describe('> sidebar', () => {
+  //   it('have a sidebar component', () => {
+  //     b.domHas(Sidebar)
 
-      const $Sidebar = wrapper.find(Sidebar)
-      expect($Sidebar.is(Sidebar)).toBe(true)
-    })
+  //     const $Sidebar = wrapper.find(Sidebar)
+  //     expect($Sidebar.is(Sidebar)).toBe(true)
+  //   })
 
-    it('bind select option to category in store', () => {
-      const $option = wrapper.findAll(`${$category} option`)
-      const categoriesInStore = wGetters('product/categories')
-      expect(categoriesInStore.includes('all')).toBeTruthy()
-      expect($option).toHaveLength(categoriesInStore.length)
-    })
+  //   it('bind select option to category in store', () => {
+  //     const $option = wrapper.findAll(`${$category} option`)
+  //     const categoriesInStore = wGetters('product/categories')
+  //     expect(categoriesInStore.includes('all')).toBeTruthy()
+  //     expect($option).toHaveLength(categoriesInStore.length)
+  //   })
 
-    it('update products when change category', () => {
-      const productsInDomBefore = getProductsInDom()
+  //   it('update products when change category', () => {
+  //     const productsInDomBefore = getProductsInDom()
 
-      const categorySelected = () => wGetters('product/categorySelected')
-      wrapper.findAll(`${$category} option`).at(4).element.selected = true
-      wrapper.find($category).trigger('input')
+  //     const categorySelected = () => wGetters('product/categorySelected')
+  //     wrapper.findAll(`${$category} option`).at(4).element.selected = true
+  //     wrapper.find($category).trigger('input')
 
-      expect(categorySelected()).toBe('shoe')
+  //     expect(categorySelected()).toBe('shoe')
 
-      const productsInDomAfter = getProductsInDom()
-      expect(productsInDomBefore).not.toBe(productsInDomAfter)
+  //     const productsInDomAfter = getProductsInDom()
+  //     expect(productsInDomBefore).not.toBe(productsInDomAfter)
 
-      const productInShoeCategory = 1
-      expect(productsInDomAfter).toBe(productInShoeCategory)
+  //     const productInShoeCategory = 1
+  //     expect(productsInDomAfter).toBe(productInShoeCategory)
 
-      resetCategoryToAll()
-    })
-  })
+  //     resetCategoryToAll()
+  //   })
+  // })
 
-  describe('> ProductListItem', () => {
-    it('have a ProductListItem component', () => {
-      b.domHas(ProductListItem)
-    })
+  // describe('> ProductListItem', () => {
+  //   it('have a ProductListItem component', () => {
+  //     b.domHas(ProductListItem)
+  //   })
 
-    it('show all products', () => {
-      const $products = wrapper.findAll(ITEM_CLASS_NAME)
-      const productsInState = wrapper.vm.$store.state.product.products
-      const products = wGetters('product/products').length
-      const allProducts = wGetters('product/allProducts').length
+  //   it('show all products', () => {
+  //     const $products = wrapper.findAll(ITEM_CLASS_NAME)
+  //     const productsInState = wrapper.vm.$store.state.product.products
+  //     const products = wGetters('product/products').length
+  //     const allProducts = wGetters('product/allProducts').length
 
-      b.domHas(ITEM_CLASS_NAME)
+  //     b.domHas(ITEM_CLASS_NAME)
 
-      expect($products).toHaveLength(products)
-      expect($products).toHaveLength(allProducts)
-      expect(productsInState).toHaveLength(allProducts)
-    })
+  //     expect($products).toHaveLength(products)
+  //     expect($products).toHaveLength(allProducts)
+  //     expect(productsInState).toHaveLength(allProducts)
+  //   })
 
-    it('update cart when click on btn add to cart', () => {
-      const getCartTotalInStore = () => wGetters('cart/total')
-      expect(getCartTotalInStore()).toBeFalsy()
+  //   it('update cart when click on btn add to cart', () => {
+  //     const getCartTotalInStore = () => wGetters('cart/total')
+  //     expect(getCartTotalInStore()).toBeFalsy()
 
-      b.click(`${ITEM_CLASS_NAME}:first-of-type .add`)
-      b.click(`${ITEM_CLASS_NAME}:first-of-type .add`)
+  //     b.click(`${ITEM_CLASS_NAME}:first-of-type .add`)
+  //     b.click(`${ITEM_CLASS_NAME}:first-of-type .add`)
 
-      expect(getCartTotalInStore()).toBe(2)
-    })
+  //     expect(getCartTotalInStore()).toBe(2)
+  //   })
 
-    it('update when is sale or not', () => {
-      const productsInDomBefore = getProductsInDom()
-      expect(getProductsInStore()).toBe(productsInDomBefore)
+  //   it('update when is sale or not', () => {
+  //     const productsInDomBefore = getProductsInDom()
+  //     expect(getProductsInStore()).toBe(productsInDomBefore)
 
-      b.click('.can-toggle input')
-      const highPrice = 20
-      b.type(highPrice, '#pricerange')
+  //     b.click('.can-toggle input')
+  //     const highPrice = 20
+  //     b.type(highPrice, '#pricerange')
 
-      const productsInDomAfter = getProductsInDom()
-      expect(productsInDomBefore).not.toBe(productsInDomAfter)
+  //     const productsInDomAfter = getProductsInDom()
+  //     expect(productsInDomBefore).not.toBe(productsInDomAfter)
 
-      const productsUnderPrice = 1
-      expect(productsInDomAfter).toBe(productsUnderPrice)
-      expect(getProductsInStore()).toBe(productsUnderPrice)
-    })
-  })
+  //     const productsUnderPrice = 1
+  //     expect(productsInDomAfter).toBe(productsUnderPrice)
+  //     expect(getProductsInStore()).toBe(productsUnderPrice)
+  //   })
+  // })
 })
