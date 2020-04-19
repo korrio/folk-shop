@@ -6,17 +6,8 @@
       .navbar-brand
         nuxt-link.navbar-item(exact, :to="{name: 'index'}")
           strong
-            i PlusGrosLeLogo
+            i folk-shop
       .navbar-end.is-flex-touch
-        .navbar-item
-          .field
-            p.control
-              a.button.is-light.is-marginless-mobile(target="_blank",
-                                href="https://github.com/14nrv/buefy-shop",
-                                rel="noopener")
-                span.icon
-                  i.fab.fa-github
-                span.is-hidden-mobile Fork
         .navbar-item
           .field
             p.control
@@ -24,7 +15,7 @@
                 span.icon.cartitem
                   .cartcount(v-if="total > 0") {{ total }}
                   i.fa.fa-shopping-cart
-                span.is-hidden-mobile Cart
+                span.is-hidden-mobile ตระกร้า
 </template>
 
 <script>

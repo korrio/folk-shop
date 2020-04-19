@@ -1,31 +1,13 @@
 <template lang="pug">
   aside.is-light.is-radius
     .sidearea
-      label.subtitle.is-5(for="pricerange") Highest Price:
-        span  ${{ pricerange }}
-      input.slider#pricerange(type="range"
-                              :value="pricerange"
-                              :min="min"
-                              :max="max"
-                              step="1"
-                              @input="updateHighprice($event.target.value)")
-      span.min.is-pulled-left ${{ min }}
-      span.max.is-pulled-right ${{ max }}
-    app-switch(v-if="!sale")
-    .sidearea
-      label.subtitle.is-5(for="category") Categories
+      label.subtitle.is-5(for="category") หมวดหมู่
       .select
         select#category(@input="setCategory($event.target.value)")
           option(v-for="category in categories",
             :key="category",
             :selected="category === categorySelected",
             :value="category") {{ category }}
-    .sidearea
-      h4.subtitle.is-5 Special Sale!
-      p Shop now because half our items are greatly reduced
-    .sidearea
-      h4.subtitle.is-5 Contact Us
-      p Questions? Call us at 1-888-555-SHOP, we're happy to be of service.
 </template>
 
 <script>

@@ -23,6 +23,6 @@ export default {
     products.find(({ name }) => slug(name) === paramSlug),
 
   categories: ({ products }) =>
-    ['all', ...new Set(products.map(({ article }) => article))].sort(),
+    ['ทั้งหมด', ...new Set(products.map(({ article }) => article))].sort(),
   categorySelected: ({ categorySelected }) => categorySelected
 }

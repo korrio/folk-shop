@@ -3,16 +3,16 @@
     .columns.is-vcentered
       .column.is-5
         picture.image.is-square
-          source(:data-srcset="`./../products/${item.img}.webp`", type="image/webp")
-          img.lazyload(:data-srcset="`./../products/${item.img}.png`", :alt="`Image of ${item.name}`")
+          source(:data-srcset="`./../products/${item.img}`")
+          img.lazyload(:data-srcset="`./../products/${item.img}`", :alt="`Image of ${item.name}`")
 
       .column.is-6.is-offset-1
         h1.title.is-2 {{ item.name }}
-        h2.subtitle.is-4 Product description, lorem ipsum dolor sit amet...
-        p.is-size-6 ${{ item.price }}
+        //h2.subtitle.is-4 Product description, lorem ipsum dolor sit amet...
+        p.is-size-6 {{ item.price }} baht
         br
         p.has-text-centered
-          a.button.is-medium.is-info.is-outlined(@click="addItem(item)", aria-label="Add to cart") Add to cart
+          a.button.is-medium.is-info.is-outlined(@click="addItem(item)", aria-label="Add to cart") ซื้อเลย
 </template>
 
 <script>

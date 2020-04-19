@@ -6,7 +6,7 @@
       nuxt
     .hero-footer
       .container
-        p Made with love from Paris
+        p Made with ❤️ from aquario
     </nav>
 </template>
 
@@ -24,6 +24,8 @@ export default {
   @require './css/_transition'
   @require './css/_slider'
 
+  .hero-footer .container 
+    text-align: center
   html
     overflow-y auto
 

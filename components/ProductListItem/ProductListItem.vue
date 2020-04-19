@@ -3,20 +3,20 @@
     .card-image
       nuxt-link(exact, :to="{name: 'products-slug', params: { slug: `${slug}` } }")
         picture.image
-          source(:data-srcset="`./../../products/${item.img}.webp`",
+          source(:data-srcset="`./../../products/${item.img}`",
                  type="image/webp")
-          img.lazyload(:data-srcset="`./../../products/${item.img}.png`",
+          img.lazyload(:data-srcset="`./../../products/${item.img}`",
                        :alt="`Image of ${item.name}`")
     .card-content
       .media
         .media-content
           nuxt-link(exact, :to="{name: 'products-slug', params: { slug: `${slug}` } }")
             p.title.is-5 {{ item.name }}
-            p.item-price {{ item.price | usdollar }}
+            p.item-price {{ item.price }} baht
         .media-right
           p.field
             button.button.icon.is-large.add(@click="addItem(item)",
-                                            aria-label="Add to cart")
+                                            aria-label="ซื้อ")
               span.fa-stack
                 i.fa.fa-circle.fa-stack-2x
                 i.fa.fa-cart-plus.fa-stack-1x.fa-inverse
@@ -30,7 +30,7 @@ const { mapActions } = createNamespacedHelpers('cart')
 export default {
   name: 'Card',
   filters: {
-    usdollar: value => `$${value}`
+    usdollar: value => `${value}`
   },
   props: {
     item: {
@@ -58,7 +58,8 @@ export default {
 
     .image
       img
-        padding-top 1.5rem
+        padding-top 0rem
+        border-radius: 5px 5px 0px 0px
 
     .card-content
       width 100%
@@ -98,4 +99,11 @@ export default {
   .lazyloaded
     opacity 1
     transition opacity 150ms
+</style>
+
+<style type="text/css" scoped>
+  .card .card-image .image img {
+    padding-top: 0 !important;
+    border-radius: 5px 5px 0px 0px;
+  }
 </style>

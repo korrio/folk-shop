@@ -1,14 +1,14 @@
 [
   {
-    "title": "Shopping Cart",
+    "title": "ตระกร้า",
     "icon": "fa-shopping-cart"
   },
   {
-    "title": "Payment",
+    "title": "ชำระเงิน",
     "icon": "fa-dollar-sign"
   },
   {
-    "title": "Confirmation",
+    "title": "ที่อยู่",
     "icon": "fa-flag"
   }
 ]

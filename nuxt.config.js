@@ -44,7 +44,19 @@ module.exports = {
   ** Headers
   ** Common headers are already provided by @nuxtjs/pwa preset
   */
-  head: {},
+  head: {
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Prompt'
+      }
+    ]
+  },
+  css: [
+    '~/assets/css/styles.css'
+  ],
   /*
   ** Customize the progress-bar color
   */

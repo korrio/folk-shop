@@ -1,5 +1,18 @@
-<template lang="pug">
-  .container
-    p.title <strong class="has-text-info">Welcome</strong> to our awesome market
-    p.subtitle Below you will find your latests products
+<template>
+  <div class="sidebar-ctn">
+    <img class="logo" src="https://folk-pos.web.app/img/logo.60743ef3.png">
+  </div>
 </template>
+
+<style scoped>
+
+.sidebar-ctn {
+	text-align: center;
+}
+.logo {
+  width: 150px;
+  width: 150px;
+  padding: 20px;
+}
+
+</style>

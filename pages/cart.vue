@@ -12,22 +12,23 @@
                                   :item="item")
 
             .is-clearfix
-              h3.total.is-pulled-left Total: {{ amount | usdollar }}
-              button.button.is-success.is-pulled-right(@click="setActualStep(1)") > Next
+              h3.total.is-pulled-left ยอดชำระ: {{ amount }}
+              button.button.is-success.is-pulled-right(@click="setActualStep(1)") ต่อไป
 
           div(v-if="actualStep === 1")
             Checkout(:total="amount")
 
         .empty.has-text-centered(v-else-if="!total && !success")
-          h3 Your cart is empty.
+          h3 ตะกร้ายังว่างอยู่.
           nuxt-link(exact to="/")
-            button.button Fill er up!
+            button.button กรุณาช้อปปิ้งก่อน!
 
         .has-text-centered(v-else)
-          h2 Success!
-          p Your order has been processed, it will be delivered shortly.
+          h3 กรุณาเลือกที่อยู่สำหรับจัดส่ง
+          p เราได้รับคำสั่งซื้อแล้ว, ท่านจะได้รับสินค้าผ่านเครือข่ายการจัดส่งของเราภายใน 7 วัน.
+          
           nuxt-link(exact to="/")
-            button.button Fill again your cart
+            button.button กรุณาช้อปปิ้งก่อน
 </template>
 
 <script>

@@ -36,6 +36,7 @@ export default {
 <style lang="stylus" scoped>
   .content
     /*no grid support*/
+    
     width 79.7872%
     /* grid */
     display grid

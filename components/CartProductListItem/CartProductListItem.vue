@@ -3,26 +3,26 @@
     article.media
       .media-left
         picture.image.is-64x64
-          source(:srcset="`products/${item.img}.webp`", type="image/webp")
-          img(:src="`products/${item.img}.png`", :alt="`Image of ${item.name}`")
+          source(:srcset="`products/${item.img}`")
+          img(:src="`products/${item.img}`", :alt="`Image of ${item.name}`")
       .media-content
         .content
           p
             strong {{ item.name }}
             br
             span.itemCount {{ item.count }}
-            |  x {{ item.price | usdollar }} = ${{ item.count * item.price }}
+            |  x {{ item.price }} = {{ item.count * item.price }} baht
         nav.level.is-mobile
           .level-left
             a.level-item.removeItem(@click="removeItem(item)", title="Remove")
               span.icon.is-small
                 i.fa.fa-trash-alt
-            a.level-item
-              span.icon.is-small
-                i.fa.fa-retweet
-            a.level-item
-              span.icon.is-small
-                i.fa.fa-heart
+            //- a.level-item
+            //-   span.icon.is-small
+            //-     i.fa.fa-retweet
+            //- a.level-item
+            //-   span.icon.is-small
+            //-     i.fa.fa-heart
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
   name:'CartProductListItem',
   filters: {
     usdollar: function(value) {
-      return `$${value}`
+      return `${value}`
     }
   },
   props: {
@@ -48,3 +48,5 @@ export default {
   }
 }
 </script>
+
+

@@ -1,21 +1,20 @@
 {
-  "name": "buefy-shop",
+  "version": 2,
+  "name": "folk-shop",
   "env": {
-    "FB_DATABASE_URL":"@fb_database_url",
-    "FB_PROJECT_ID":"@fb_project_id",
-    "FB_API_KEY":"@fb_api_key",
-    "FB_AUTH_DOMAIN":"@fb_auth_domain",
-    "FB_STORAGE_BUCKET":"@fb_storage_bucket",
-    "FB_MESSAGE_SENDER_ID":"@fb_message_sender_id",
-    "STRIPE_PUBLISHABLE_KEY": "@stripe_publishable_key",
-    "STRIPE_URL": "@stripe_url",
-    "GA_ID": "@ga_id"
+    "FB_DATABASE_URL":"https://botbaht.firebaseio.com",
+    "FB_PROJECT_ID":"botbaht",
+    "FB_API_KEY":"AIzaSyBDT7swAkdQkyTDnD8tO-ryUSwftiSf3es",
+    "FB_AUTH_DOMAIN":"botbaht.firebaseapp.com",
+    "FB_STORAGE_BUCKET":"botbaht.appspot.com",
+    "FB_MESSAGE_SENDER_ID":"621191134813",
+    "STRIPE_PUBLISHABLE_KEY": "pk_test_nbgl8ReO6MNEDCsVS4WNNxoD00uKBz1oYs",
+    "STRIPE_URL": "",
+    "GA_ID": "UA-103689980-1"
   },
-  "forwardNpm": true,
   "public": true,
-  "type": "npm",
   "alias": [
-    "buefy-shop",
-    "buefy-shop-dev"
+    "folk-shop",
+    "folk-shop-dev"
   ]
 }

@@ -3,7 +3,7 @@
     transition(name="fade")
 
       form.payment(v-if="status !== 'failure'", @submit.prevent="beforePay")
-        h3 Please enter your payment details:
+        h3 กรุณาใส่เลขบัตรเครดิตหรือบัตรเดบิต:
 
         .field
           label.label(for="email") Email
@@ -24,9 +24,9 @@
         .field
           label.label(for="card") Credit Card
           p.help
-            | Test using this credit card:&nbsp;
+            | กรุณาใช้เลข credit card:&nbsp;
             strong 4242 4242 4242 4242,<br>
-            | and enter any 5 digits for the zip code
+            | และใส่รหัสไปรษณีย์ 5 หลัก
 
         .field
           card.stripe-card.input#card(:class="{ 'complete': isStripeCardCompleted }",
@@ -36,12 +36,12 @@
         .field
           button.button.is-success.pay-with-stripe(:disabled="!isStripeCardCompleted || errors.any()",
                                                    :class="{ 'is-loading': isLoading }")
-            | Pay with credit card
+            | ชำระด้วยบัตร
 
       .statusFailure.has-text-centered(v-if="status === 'failure'")
-        h3 Oh No!
-        p Something went wrong!
-        button.button(@click="clearCheckout") Please try again
+        h3 ไม่นะ!
+        p มีบางอย่างผิดพลาด!
+        button.button(@click="clearCheckout") ลองใหม่อีกครั้ง
 
 </template>
 
